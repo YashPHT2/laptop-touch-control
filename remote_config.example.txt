@@ -1,0 +1,13 @@
+# ---------------------------------------------------------------
+# Laptop Touch Control - settings
+# ---------------------------------------------------------------
+# Copy this file to "remote_config.txt" and set a PIN so that only
+# people who know it can control your laptop.
+#
+# Make it long - 6+ digits or a word. Anything here is a password.
+#
+# Example:
+#   PIN=582914
+# ---------------------------------------------------------------
+
+PIN=

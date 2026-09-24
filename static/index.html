@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0A0C10">
+<title>Laptop Touch Control</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div id="screen-wrap">
+  <img id="screen" alt="live screen" draggable="false">
+  <div id="loader"><div class="spin"></div><p>Connecting to laptop...</p></div>
+</div>
+
+<div id="hud-grab"><span></span></div>
+
+<div id="lock">
+  <div class="lock-inner" id="lock-inner">
+    <div class="lock-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+        <line x1="8" y1="20" x2="16" y2="20"></line>
+        <line x1="12" y1="16" x2="12" y2="20"></line>
+      </svg>
+    </div>
+    <h1>Laptop Touch Control</h1>
+    <p class="lock-sub">Enter your PIN to take control</p>
+    <input id="pin-input" type="password" inputmode="numeric" placeholder="&#8226;&#8226;&#8226;&#8226;" maxlength="8">
+    <button id="pin-go">Unlock</button>
+    <div id="pin-err"></div>
+  </div>
+</div>
+
+<div id="toolbar">
+  <div class="seg">
+    <button class="seg-btn on" id="seg-touch">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 11.5V6a1.5 1.5 0 0 1 3 0v5"></path>
+        <path d="M12 11V4.5a1.5 1.5 0 0 1 3 0V11"></path>
+        <path d="M15 10.5a1.5 1.5 0 0 1 3 .5V13a6 6 0 0 1-6 6h-.8a6 6 0 0 1-4.9-2.5L4 13.6a1.6 1.6 0 0 1 2.5-2L8 13.2V11"></path>
+      </svg>
+      Touch
+    </button>
+    <button class="seg-btn" id="seg-stick">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round">
+        <line x1="6" y1="12" x2="10" y2="12"></line>
+        <line x1="8" y1="10" x2="8" y2="14"></line>
+        <line x1="15" y1="13" x2="15.01" y2="13"></line>
+        <line x1="18" y1="11" x2="18.01" y2="11"></line>
+        <path d="M17.3 5H6.7a4 4 0 0 0-4 3.6C2.6 9.4 2 14.5 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.4-1.4a2 2 0 0 1 1.4-.6h4.4a2 2 0 0 1 1.4.6L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.5-.6-6.6-.7-7.4a4 4 0 0 0-4-3.6z"></path>
+      </svg>
+      Stick
+    </button>
+  </div>
+  <button class="ibtn" id="btn-kb" aria-label="Keyboard">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+         stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+      <line x1="6" y1="10" x2="6.01" y2="10"></line>
+      <line x1="10" y1="10" x2="10.01" y2="10"></line>
+      <line x1="14" y1="10" x2="14.01" y2="10"></line>
+      <line x1="18" y1="10" x2="18.01" y2="10"></line>
+      <line x1="7" y1="14" x2="17" y2="14"></line>
+    </svg>
+  </button>
+  <button class="ibtn" id="btn-scup" aria-label="Scroll up">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+         stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+  <button class="ibtn" id="btn-scdn" aria-label="Scroll down">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+         stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
+  <button class="ibtn" id="btn-rtoggle" aria-label="Right click mode">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 4l7.5 16 2-7 7-2z"></path>
+    </svg>
+  </button>
+</div>
+
+<div id="joy-zone"><div id="joy-knob"></div></div>
+
+<div id="clicks">
+  <button class="cbtn" id="cbtn-left">L</button>
+  <button class="cbtn" id="cbtn-right">R</button>
+</div>
+
+<div id="kb-panel">
+  <div id="kb-grab"></div>
+  <input id="kb-input" type="text" placeholder="Type on your laptop..."
+         autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <div class="kb-row">
+    <button class="kbtn" data-key="escape">esc</button>
+    <button class="kbtn" data-key="tab">tab</button>
+    <button class="kbtn" data-key="backspace">&#9003;</button>
+    <button class="kbtn" data-key="enter">return &#9166;</button>
+  </div>
+  <div class="kb-row">
+    <button class="kbtn" data-key="left">&#8592;</button>
+    <button class="kbtn" data-key="up">&#8593;</button>
+    <button class="kbtn" data-key="down">&#8595;</button>
+    <button class="kbtn" data-key="right">&#8594;</button>
+    <button class="kbtn" data-key="space">space</button>
+  </div>
+  <div class="kb-row">
+    <button class="kbtn" data-combo="ctrl,c">ctrl C</button>
+    <button class="kbtn" data-combo="ctrl,v">ctrl V</button>
+    <button class="kbtn" data-combo="ctrl,z">ctrl Z</button>
+    <button class="kbtn" data-combo="alt,tab">alt tab</button>
+    <button class="kbtn" data-combo="win,d">win D</button>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="/app.js"></script>
+</body>
+</html>

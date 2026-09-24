@@ -1,0 +1,7 @@
+flask>=3.0.0
+flask-sock>=0.7.0
+simple-websocket>=1.0.0
+mss>=9.0.0
+pillow>=10.0.0
+pynput>=1.7.6
+qrcode[pil]>=7.4

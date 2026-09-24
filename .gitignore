@@ -1,0 +1,58 @@
+# ---------------------------------------------------------------
+# Secrets & machine-specific config  (NEVER commit these)
+# ---------------------------------------------------------------
+# your PIN lives here - use the .example file instead
+remote_config.txt
+# Android SDK path (machine specific)
+local.properties
+*.log
+server_run.log
+
+# ---------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# ---------------------------------------------------------------
+# Build outputs  (binaries are published via GitHub Releases)
+# ---------------------------------------------------------------
+build/
+dist/
+LaptopControl.exe
+*.apk
+*.aab
+*.pkg
+
+# ---------------------------------------------------------------
+# Android / Gradle
+# ---------------------------------------------------------------
+android-app/.gradle/
+android-app/build/
+android-app/app/build/
+android-app/captures/
+.gradle/
+.externalNativeBuild/
+.cxx/
+*.hprof
+
+# ---------------------------------------------------------------
+# Unrelated local projects
+# ---------------------------------------------------------------
+lan-file-lab/
+
+# ---------------------------------------------------------------
+# Editors & OS
+# ---------------------------------------------------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
